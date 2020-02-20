@@ -11,10 +11,13 @@ const router = express.Router();
 registrar produto 
 exemplo de req -> 
 {
-    "userName": "Danilo",
-    "email": "danilo@email.com",
-    "adm": false ou true
-}
+    "id": "de380ab7-6c7d-4fb8-91af-a10fd8cd7ec3",
+    "name": "Maionese Hellmann's Balde 3 KG",
+    "bar_code": "7891150035959",
+    "productPicture": "https://sifu.unileversolutions.com/image/pt-BR/original/2/maionese-hellmann-s-balde-3-kg-50364576.png",
+    "inStock": 700,
+    "category": 1
+  }
 */
 router.post('/register-product', async (req, res) => {
     try {
