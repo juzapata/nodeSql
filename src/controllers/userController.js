@@ -36,14 +36,14 @@ router.post('/register-user', async (req, res) => {
 router.get('/get-users', async (req, res) => {
     try {
         const { id } = req.body;
-        const user = await User.findAll({
+        const user = await User.findOne({
             where: {
                 id: id
             }
         });
-        // validando se usuário "logado" existe
-        if (user.length === 0) {
-            return res.status(400).send({ success: false, erro: 'Usuário não existe, se registre como usuário para poder ver os outros usuários' });
+        // validando se usuário "logado" existe        
+        if (!user) {
+            return res.status(400).send({ erro: 'Usuário não existe, se registre como usuário para poder ver os outros usuários' });
         }
         const result = await User.findAll();
         return res.status(200).send({ success: true, result });

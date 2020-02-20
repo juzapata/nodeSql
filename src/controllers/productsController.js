@@ -41,13 +41,11 @@ router.get('/get-product', async (req, res) => {
                 id: id
             }
         });
-        console.log(user);
-        // validando se usuário existe
+        // validando se usuário existe e está "logado"
         if (!user) {
             return res.status(400).send({ erro: 'Usuário não existe, registre um para poder ver os produtos' });
         }
         let userAdm = user.dataValues.adm;
-
         // validando a o que usuário tem acesso
         if (userAdm === false) {
             let productsOne = await Product.findAll({
