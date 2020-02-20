@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../database/index');
 
-// criando o model dos produtos
+// criando o model dos usuários
 const User = sequelize.define('user', {
     id: {
         type: Sequelize.INTEGER,
